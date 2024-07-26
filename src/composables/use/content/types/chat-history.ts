@@ -1,0 +1,1 @@
+export type ChatHistory = string[]

@@ -1,16 +1,31 @@
 <script setup lang="ts">
-const route = useRoute()
-const chat = computed(() => route.params.chat)
+import LeftIcon from '~icons/material-symbols/chevron-left'
 </script>
 
 <template>
-  <section class="flex gap-2">
-    <ContentWrapper>
+  <section class="grid grid-cols-[1fr_3fr] gap-2">
+    <ContentWrapper class="flex min-w-80 flex-col overflow-hidden">
+      <div class="inline-flex justify-between">
+        <button type="button" class="inline-flex place-items-center opacity-100 transition">
+          <LeftIcon />
+
+          <span>Chat list</span>
+        </button>
+
+        <button type="button" class="inline-flex place-items-center opacity-100 transition">
+          <LeftIcon />
+
+          <span>Folder settings</span>
+        </button>
+
+        <h1>chat settings</h1>
+      </div>
+
       <ChatList />
     </ContentWrapper>
 
-    <ContentWrapper v-if="chat?.length > 0" class="grow">
-      <ChatTalk />
-    </ContentWrapper>
+    <!-- <ContentWrapper class="grow"> -->
+    <RouterView class="grow" />
+    <!-- </ContentWrapper> -->
   </section>
 </template>

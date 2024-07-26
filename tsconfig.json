@@ -17,7 +17,8 @@
     "resolveJsonModule": true,
     "types": [
       "vite/client",
-      "unplugin-icons/types/vue"
+      "unplugin-icons/types/vue",
+      "unplugin-vue-macros/macros-global"
     ],
     "allowImportingTsExtensions": true,
     /* Linting */

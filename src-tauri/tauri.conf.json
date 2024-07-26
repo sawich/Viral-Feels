@@ -7,7 +7,7 @@
   },
   "package": {
     "productName": "viral-feels",
-    "version": "0.0.0"
+    "version": "1.0.0"
   },
   "tauri": {
     "allowlist": {
@@ -19,9 +19,9 @@
     },
     "windows": [
       {
-        "title": "viral-feels",
-        "width": 800,
-        "height": 600
+        "title": "Viral Feels",
+        "width": 1280,
+        "height": 720
       }
     ],
     "security": {
@@ -30,7 +30,7 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.tauri.dev",
+      "identifier": "org.angeldev.viral-feels",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",

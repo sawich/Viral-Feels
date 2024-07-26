@@ -4,13 +4,18 @@ import { defineConfig } from 'vite'
 import Icons from 'unplugin-icons/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import Macros from 'unplugin-vue-macros/vite'
 
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
   plugins: [
-    vue(),
+    Macros({
+      plugins: {
+        vue: vue(),
+      },
+    }),
     Icons(),
     AutoImport({
       imports: [

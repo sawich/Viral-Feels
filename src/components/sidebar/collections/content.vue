@@ -1,21 +1,22 @@
 <script setup lang="ts">
+import { useContentFolders } from '@/composables/use/content/folders'
+
 import FolderIcon from '~icons/material-symbols/folder'
 import OpenFolderIcon from '~icons/material-symbols/folder-open'
 
-const folders = Array.from({ length: 3 }).map((_, i) => ({
-  uuid: createUuid(),
-  name: `folder ${i}`,
-}))
+const folders = useContentFolders()
 </script>
 
 <template>
   <SidebarCollection :collection="folders">
     <template #default="{ uuid, name }">
-      <SidebarToggleState :to="{ name: 'chats', params: { folder: uuid } }">
+      <SidebarStatesToggle :to="{ name: 'chats', params: { folder: uuid } }">
         <template #default="{ state }">
-          <SidebarItem :state="state">
+          <SidebarItem>
             <template #header>
-              {{ name }}
+              <span class="break-all" style="word-break: break-all">
+                {{ name }}
+              </span>
             </template>
 
             <template #body>
@@ -24,7 +25,7 @@ const folders = Array.from({ length: 3 }).map((_, i) => ({
             </template>
           </SidebarItem>
         </template>
-      </SidebarToggleState>
+      </SidebarStatesToggle>
     </template>
   </SidebarCollection>
 </template>

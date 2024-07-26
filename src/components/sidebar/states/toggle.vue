@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import type { RouterLinkProps } from 'vue-router'
 
+import { useProvideSidebarState } from '@/composables/use/sidebar-state'
+
 type Props = RouterLinkProps & { to: { params: { folder: string } } }
 
 const props = defineProps<Props>()
 
 const route = useRoute()
-const state = computed(() => props.to.params.folder === route.params.folder)
+
+const { state } = useProvideSidebarState(computed(() => props.to.params.folder === route.params.folder))
 </script>
 
 <template>

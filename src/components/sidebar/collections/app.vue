@@ -17,19 +17,17 @@ const links = [{
 <template>
   <SidebarCollection :collection="links">
     <template #default="{ name, icon }">
-      <SidebarAppState :to="{ name }">
-        <template #default="{ state }">
-          <SidebarItem :state="state">
-            <template #header>
-              {{ name }}
-            </template>
+      <SidebarStatesApp :to="{ name }">
+        <SidebarItem>
+          <template #header>
+            {{ name }}
+          </template>
 
-            <template #body>
-              <Component :is="icon" />
-            </template>
-          </SidebarItem>
-        </template>
-      </SidebarAppState>
+          <template #body>
+            <Component :is="icon" />
+          </template>
+        </SidebarItem>
+      </SidebarStatesApp>
     </template>
   </SidebarCollection>
 </template>
